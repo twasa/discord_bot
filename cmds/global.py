@@ -1,0 +1,21 @@
+import discord
+from discord.ext import commands
+from ..core import CogCore
+
+class Global(CogCore):
+    @commands.command()
+    async def ping(self, ctx):
+        await ctx.send(f'{self.bot.latency * 1000} ms')
+
+    @commands.command()
+    async def hello(self, ctx, *, member: discord.Member = None):
+        """Says hello"""
+        member = member or ctx.author
+        if self._last_member is None or self._last_member.id != member.id:
+            await ctx.send('Hello {0.name}~'.format(member))
+        else:
+            await ctx.send('Hello {0.name}... This feels familiar.'.format(member))
+        self._last_member = member
+
+def setup(bot):
+    bot.add_cog(Global(bot))
