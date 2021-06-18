@@ -1,7 +1,7 @@
-from .core import CogCore
+from core.cog import CogExtension
 from discord.ext import commands
 
-class Manager(CogCore):
+class Manager(CogExtension):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         channel = member.guild.system_channel

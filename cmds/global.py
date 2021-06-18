@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
-from ..core import CogCore
+from core.cog import CogExtension
 
-class Global(CogCore):
+class Global(CogExtension):
     @commands.command()
     async def ping(self, ctx):
         await ctx.send(f'{self.bot.latency * 1000} ms')
