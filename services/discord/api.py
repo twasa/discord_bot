@@ -28,14 +28,12 @@ class BotApp(object):
 
     def load_extension(self):
         for filename in os.listdir('cmds'):
-            print(os.getcwd())
-            print(filename)
             if filename.endswith('.py'):
                 ext_name = f'cmds.{filename[:-3]}'
-                print(ext_name)
                 self.bot.load_extension(ext_name)
 
-    def run(self):
+    def run(self, token):
+        self.token = token
         self.bot.add_cog(Manager(self.bot))
         self.load_extension()
         self.bot.run(self.token)
