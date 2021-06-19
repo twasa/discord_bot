@@ -11,21 +11,6 @@ class BotApp(object):
         self.token = ''
         self.bot = commands.Bot(command_prefix='//')
 
-    @commands.command()
-    async def load(ctx, extension_name):
-        self.bot.load_extension(f'cmds.{extension_name}')
-        await ctx.send(f'loaded {extension_name} done.')
-
-    @commands.command()
-    async def unload(ctx, extension_name):
-        self.bot.unload_extension(f'cmds.{extension_name}')
-        await ctx.send(f'unloaded {extension_name} done.')
-
-    @commands.command()
-    async def reload(ctx, extension_name):
-        bot.reload_extension(f'cmds.{extension_name}')
-        await ctx.send(f'reload {extension_name} done.')
-
     def load_extension(self):
         for filename in os.listdir('cmds'):
             if filename.endswith('.py'):

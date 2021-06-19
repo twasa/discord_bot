@@ -11,10 +11,6 @@ class Global(CogExtension):
     async def ping(self, ctx):
         await ctx.send(f'{self.bot.latency * 1000} ms')
 
-    @commands.command()
-    async def hello(self, ctx, *, member: discord.Member = None):
-        member = member or ctx.author
-
 
 def setup(bot):
     bot.add_cog(Global(bot))
