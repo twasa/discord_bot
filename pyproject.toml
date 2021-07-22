@@ -7,6 +7,9 @@ authors = ["William Wang <twasawang@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 "discord.py" = "^1.7.3"
+python-dotenv = "0.18.0"
+requests = "2.26.0"
+beautifulsoup4 = "4.9.3"
 
 [tool.poetry.dev-dependencies]
 

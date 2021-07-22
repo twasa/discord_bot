@@ -1,9 +1,8 @@
-import logging
 import discord
 from discord.ext import commands
 from core.cog import CogExtension
 
-logger = logging.getLogger(__name__)
+from tools.log import logger
 
 
 class Admin(CogExtension):
@@ -25,6 +24,7 @@ class Admin(CogExtension):
         # if ctx.message.author.guild_permissions.administrator:
         self.bot.reload_extension(f'cmds.{extension_name}')
         await ctx.send(f'reload {extension_name} done.')
+
 
 def setup(bot):
     bot.add_cog(Admin(bot))
