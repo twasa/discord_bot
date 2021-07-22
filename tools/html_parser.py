@@ -11,3 +11,4 @@ def parse_langrisser_wiki_search_result(html_str):
             first_a = all_a[0]
             url = first_a.get('href')
             return url
+    return '找不到資訊'

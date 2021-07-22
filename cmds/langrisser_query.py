@@ -17,7 +17,7 @@ class LQuery(CogExtension):
         search_result = requests.get(base_uri, params={'search': key_word})
         html_str = search_result.text
         result_uri = parse_langrisser_wiki_search_result(html_str)
-        await ctx.send('test')
+        await ctx.send(result_uri)
 
 
 def setup(bot):
