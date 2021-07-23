@@ -16,7 +16,7 @@ base_dir = os.getcwd()
 class BotApp(object):
     def __init__(self):
         self.token = ''
-        self.bot = commands.Bot(command_prefix='//', intents=intents)
+        self.bot = commands.Bot(command_prefix='/', intents=intents)
 
     def load_extension(self):
         for filename in os.listdir('cmds'):
