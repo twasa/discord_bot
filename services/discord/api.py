@@ -2,6 +2,7 @@ import discord
 import os
 from discord.ext import commands
 from services.discord.manager import Manager
+from tools.log import logger
 
 intents = discord.Intents.default()
 intents.members = True
