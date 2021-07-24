@@ -1,5 +1,6 @@
 import urllib.parse
 import requests
+import inspect
 
 from discord.ext import commands
 from core.cog import CogExtension
@@ -17,11 +18,12 @@ cc = OpenCC('t2s')
 class Langrisser(CogExtension):
     @commands.command()
     async def q(self, ctx):
+        fn_name = inspect.stack()[0][3]
+        cmd_prefix = self.bot.command_prefix
         message = ctx.message.content
-        key_word = message.lstrip('//query ')
-        # query_string = urllib.parse.quote(key_word)
+        query_string = message.removeprefix(f'{cmd_prefix}{fn_name} ')
         try:
-            response_obj = requests.get(search_uri, params={'search': cc.convert(key_word)})
+            response_obj = requests.get(search_uri, params={'search': cc.convert(query_string)})
         except Exception as e:
             logger.warning(str(e))
             return ctx.send('Langrisser wiki error')

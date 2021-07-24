@@ -3,9 +3,17 @@ from core.cog import CogExtension
 
 
 class Global(CogExtension):
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send(f'{self.bot.latency * 1000} ms')
+    @commands.Cog.listener()
+    async def on_member_join(self, payload):
+        pass
+
+    @commands.Cog.listener()
+    async def on_message(self, payload):
+        if payload.author.bot or payload.content[0] == f'{self.bot.command_prefix}':
+            return
+        await self.bot.process_commands(payload)
+        # channel = payload.channel
+        # await channel.send("your message")
 
 
 def setup(bot):

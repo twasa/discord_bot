@@ -4,6 +4,10 @@ from tools.log import logger
 
 
 class Admin(CogExtension):
+    @commands.command(administrator=True)
+    async def ping(self, ctx):
+        await ctx.send(f'{self.bot.latency * 1000} ms')
+
     @commands.has_permissions(administrator=True)
     @commands.command()
     async def load(self, ctx, extension_name):
