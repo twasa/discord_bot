@@ -23,12 +23,12 @@ class Admin(CogExtension):
     async def unload(self, ctx, extension_name):
         cmd_file_path = inspect.stack()[0][1]
         self_extension_name = cmd_file_path.split('/')[-1].split('.')[0]
-        try:
-            if not extension_name == self_extension_name:
-                self.bot.unload_extension(f'cmds.{extension_name}')
-                await ctx.send(f'unloaded {extension_name} done.')
-                return
+        if extension_name == self_extension_name:
             logger.warning('unload admin not allowed')
+            return
+        try:
+            self.bot.unload_extension(f'cmds.{extension_name}')
+            await ctx.send(f'unloaded {extension_name} done.')
         except Exception as e:
             logger.warning(str(e))
 
