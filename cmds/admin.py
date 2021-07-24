@@ -1,3 +1,4 @@
+import inspect
 from discord.ext import commands
 from core.cog import CogExtension
 from tools.log import logger
@@ -20,9 +21,14 @@ class Admin(CogExtension):
     @commands.has_permissions(administrator=True)
     @commands.command()
     async def unload(self, ctx, extension_name):
+        cmd_file_path = inspect.stack()[0][1]
+        self_extension_name = cmd_file_path.split('/')[-1].split('.')[0]
         try:
-            self.bot.unload_extension(f'cmds.{extension_name}')
-            await ctx.send(f'unloaded {extension_name} done.')
+            if not extension_name == self_extension_name:
+                self.bot.unload_extension(f'cmds.{extension_name}')
+                await ctx.send(f'unloaded {extension_name} done.')
+                return
+            logger.warning('unload admin not allowed')
         except Exception as e:
             logger.warning(str(e))
 
