@@ -24,7 +24,7 @@ class Admin(CogExtension):
         cmd_file_path = inspect.stack()[0][1]
         self_extension_name = cmd_file_path.split('/')[-1].split('.')[0]
         if extension_name == self_extension_name:
-            logger.warning('unload admin not allowed')
+            logger.warning(f'unload {extension_name} not allowed')
             return
         try:
             self.bot.unload_extension(f'cmds.{extension_name}')
