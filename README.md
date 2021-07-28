@@ -31,6 +31,14 @@ requests 2.26.0 Python HTTP for Humans.
 ├── charset-normalizer >=2.0.0,<2.1.0
 ├── idna >=2.5,<4
 └── urllib3 >=1.21.1,<1.27
+
+# if you have install Poetry just run
+poetry install --no-dev --no-root
+```
+
+## config your token in .env file
+```dotenv
+DISCORD_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## run discord BOT
