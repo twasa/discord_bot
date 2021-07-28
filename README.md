@@ -4,11 +4,13 @@
 - https://discordpy.readthedocs.io/en/stable/api.html#
 
 ## pre-request
-1. login Discord and go to develop page https://discord.com/developers/applications
-2. New Application and set a name
-3. Bot > Add Bot and set Username
-4. Bot permissions
-5. check permissions that your BOT needed (https://discord.com/developers/docs/topics/permissions)
+- login Discord and go to develop page https://discord.com/developers/applications
+- New Application and set a name
+- Bot > Add Bot and set Username
+- Bot > TOKEN > Copy   
+- check permissions that your BOT needed (https://discord.com/developers/docs/topics/permissions)
+- invite Bot to your server
+- run Bot app up
 
 ## dependency
 ```
@@ -36,7 +38,7 @@ requests 2.26.0 Python HTTP for Humans.
 poetry install --no-dev --no-root
 ```
 
-## config your token in .env file
+## paste your token in .env file
 ```dotenv
 DISCORD_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
