@@ -26,9 +26,9 @@ class Langrisser(CogExtension):
             response_obj = requests.get(search_uri, params={'search': cc.convert(query_string)})
         except Exception as e:
             logger.warning(str(e))
-            return ctx.send('Langrisser wiki error')
+            return ctx.send(f'{base_uri} error')
         if response_obj.status_code != 200:
-            await ctx.send('Langrisser wiki error')
+            await ctx.send(f'{base_uri} error')
         if response_obj.url.startswith(f'{base_uri}/{middle_name}'):
             await ctx.send(f'{urllib.parse.unquote(response_obj.url)}')
             return

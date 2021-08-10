@@ -3,15 +3,14 @@ import os
 from discord.ext import commands
 from tools.log import logger
 
-intents = discord.Intents.default()
-intents.members = True
-intents.messages = True
-intents.typing = False
-intents.presences = False
-
 
 class BotApp(object):
     def __init__(self):
+        intents = discord.Intents.default()
+        intents.members = True
+        intents.messages = True
+        intents.typing = False
+        intents.presences = False
         self.bot = commands.Bot(command_prefix='/', intents=intents)
 
     def load_extension(self):
